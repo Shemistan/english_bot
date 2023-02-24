@@ -13,6 +13,15 @@ generate-proto:
 	mv pkg/github.com/Shemistan/english_bot/api/api/proto/admin/v1/* pkg/admin/v1/
 	rm -rf pkg/github.com
 
+generate-admin-openapi-spec:
+	mkdir -p docs
+	protoc \
+		--proto_path=api/proto \
+		--openapiv2_out=docs \
+		--openapiv2_opt=use_go_templates=true,allow_merge=true,merge_file_name=admin,json_names_for_fields=true \
+		api/proto/admin/v1/*.proto
+
+
 lint:
 	golangci-lint run
 
