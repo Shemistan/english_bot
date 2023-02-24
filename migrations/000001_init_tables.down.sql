@@ -1,0 +1,19 @@
+BEGIN ;
+DROP TABLE users;
+COMMIT ;
+
+BEGIN ;
+DROP TABLE sentences_1;
+COMMIT ;
+
+BEGIN ;
+DROP TABLE rus_words;
+COMMIT ;
+
+BEGIN ;
+DROP TABLE eng_words;
+COMMIT ;
+
+BEGIN;
+DROP SEQUENCE users_seq;
+COMMIT;

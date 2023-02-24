@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  db:
+    container_name: english
+    image: cockroachdb/cockroach:v21.1.18
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    volumes:
+      - "${PWD}/data/cockroach:/cockroach/cockroach-data"
+    command: start-single-node --insecure

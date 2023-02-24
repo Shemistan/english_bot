@@ -1,0 +1,20 @@
+syntax = "proto3";
+package admin.v1;
+
+option go_package = "github.com/Shemistan/english_bot/api/api/proto/admin/v1";
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "English bot Api";
+    version: "1.0.0";
+  };
+
+  host: "github.com/Shemistan";
+  base_path: "/api/v1"
+
+  schemes: HTTPS;
+  consumes: "application/json";
+  produces: "application/json";
+};

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package admin.v1;
+
+option go_package = "github.com/Shemistan/english_bot/api/api/proto/admin/v1";
+
+import "google/api/annotations.proto";
+
+service BotService {
+  rpc Auth(Auth.Request) returns (Auth.Response) {
+    option (google.api.http) = {
+      post: "/auth"
+      body:"user"
+    };
+  }
+
+
+  rpc GetSentence(GetSentence.Request) returns (GetSentence.Response) {
+    option (google.api.http) = {
+      get: "/campaigns"
+    };
+  }
+
+}
+
+message Auth{
+  message Request{
+    user user = 1;
+  }
+
+  message Response{}
+}
+
+message GetSentence{
+  message Request{}
+
+  message Response{
+    string sentence = 1;
+  }
+}
+
+message user {
+  string name = 1;
+  string telegram_id = 2;
+}
